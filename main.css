@@ -1,6 +1,7 @@
 body{
     height: 100vh;
     background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 button{
@@ -8,7 +9,13 @@ button{
 }
 
 img{
-    height: 80%;
+    height: 250px;
+    padding-right: 75px;
+}
+
+table{
+    font-size: 2em;
+    line-height: 2em;
 }
 
 .flat-theme{
@@ -16,82 +23,124 @@ img{
     width: 100%;
     height: 100%;
     color: white;
-    font: bolder;
 }
 
-#match-up{
+.match-up{
     display: flex;
     flex-direction: column;
     width: 75%;
 }
 
-#match-info{
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-}
-
-#match-heading{
+.match-heading{
     display: flex;
     justify-content: flex-end;
     height: 5%;
     font-size: .75em;
     padding-left: 25px;
+    background-color: rgb(98, 98, 99);
+}
+
+.match-type{
+    font-size: 1.5em;
+    margin-right: auto;
+    align-self: center;
+}
+
+
+.toggle-theme{
+}
+
+
+.home{
+    display: flex;
+    justify-content: flex-end;
+    height: 45%;
+    /* padding: 25px; */
+    padding-left: 50px;
+    padding-top: 50px;
+    color: black;
     background-color: rgb(253, 185, 39);
 }
 
-#match-type{
-    width: 90%;
-}
-
-#toggle-theme{
-}
-
-
-#away-team{
+.away.warriors{
     display: flex;
+    justify-content: flex-end;
     height: 45%;
     /* padding: 25px; */
-    padding-left: 25px;
-    padding-top: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5em;
-    background-color: rgb(253, 185, 39);
+    padding-left: 50px;
+    padding-top: 50px;
+    background-color: rgb(38,40,42);
 }
 
-#home-team{
+.away-name{
+    margin-right: auto;
+    font-size: 4.0em;
+    font-weight: bolder;
+}
+
+.home.bucks{
     display: flex;
+    justify-content: flex-end;
     height: 45%;
     /* padding: 25px; */
-    padding-left: 25px;
-    padding-top: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5em;
-    background-color: rgb(0, 71, 27);
+    padding-left: 50px;
+    padding-top: 50px;
+    color: black;
+    background-color: rgb(240,235,210);
 }
 
-#date{
+.away{
+    display: flex;
+    justify-content: flex-end;
+    height: 45%;
+    /* padding: 25px; */
+    padding-left: 50px;
+    padding-top: 50px;
+    background-color: rgb(0,71,27);
+}
+
+.home-name{
+    margin-right: auto;
+    font-size: 4.0em;
+    font-weight: bolder;
+}
+
+.match-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%;
+}
+
+.date{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 5%;
+    width: 100%;
     text-align: center;
-    font-size: .75em;
+    font-size: 1em;
     padding-right: 25px;
-    background-color: rgb(0,107,182);
+    background-color: rgb(98, 98, 99);
 }
 
-#count-down{
+.count-down{
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 45%;
     text-align: center;
-    padding-top: 25px;
-    background-color: rgb(0,107,182);
+    padding: 25px;
+    background-color: rgb(0, 0, 0);
 }
 
-#location{
+.location{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 45%;
     text-align: center;
-    padding-top: 25px;
-    background-color: rgb(240, 235, 210);
+    padding: 25px;
+    background-color: rgb(255, 255, 255);
     color: black;
 }

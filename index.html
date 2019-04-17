@@ -10,31 +10,51 @@
 </head>
 <body>
     <div class = "app flat-theme">
-        <div id = "match-up">
-            <div id = 'match-heading'>
-                <h3 id= "match-type">NBA Final</h3>
-                <button id="toggle-theme">Switch to regular theme</button>
+        <div class ="match-up">
+            <div class = 'match-heading'>
+                <div class= "match-type">NBA Finals</div>
+                <button class="toggle-theme">Switch to Warriors Home Game</button>
             </div>
-            <div id = 'away-team'>
-                <h1>Golden State Warriors</h1>
-                <img src='./assets/warriorslogo.png'>
+            <div class = 'away warriors'>
+                <div class="away-name">Golden State Warriors</div>
+                <div>
+                    <img class='away-logo' src='./assets/warriorslogo.png'>
+                </div>
             </div>
-            <div id = 'home-team'>
-                <h1>Milwaukee Bucks</h1>
-                <img src='./assets/buckslogo.png'>
+            <div class = 'home bucks'>
+                <div class='home-name'>Milwaukee Bucks</div>
+                <div>
+                    <img class='home-logo' src='./assets/buckslogo.png'>
+                </div>
             </div>
         </div>
-        <div id = "match-info">
-            <div id="date">
-                <h3>May 13, 2019</h3>
+        <div class = "match-info">
+            <div class="date">Time</div>
+            <div class="count-down">
+                <table>
+                        <tr>
+                            <td>Jump Ball</td>
+                        </tr>
+                        <tr>
+                            <td>begins in</td>
+                        </tr>
+                        <tr>
+                            <td class='days-left'></td>
+                        </tr>
+                </table> 
             </div>
-            <div id="count-down">
-                <h2>Jump Ball begins in</h2>
-                <h2 id='days-left'></h2>
-            </div>
-            <div id="location">
-                <h1>Fiserv Forum</h1>
-                <h2>Milwaukee, WI</h2>
+            <div class="location">
+                <table>
+                    <tr>
+                        <td>in</td>
+                    </tr>
+                    <tr>
+                        <td class='stadium'>Fiserv Forum</td>
+                    </tr>
+                    <tr>
+                        <td class='city'>Milwaukee, WI</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
