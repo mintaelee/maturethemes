@@ -6,31 +6,46 @@
     <title>NBA Finals Count Down</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="data.js"></script>
     <script src="main.js"></script>
 </head>
 <body>
-    <div class = "app flat-theme">
+    <div class = "app dark-theme theme-toggle">
         <div class ="match-up">
             <div class = 'match-heading'>
-                <div class= "match-type">NBA Finals</div>
-                <button class="toggle-theme">Switch to Warriors Home Game</button>
+                <div class= "match-type">
+                    <select name="playoff-bracket" class="bracket-select">
+                        <option value="finals">NBA Playoffs Finals</option>
+                        <option value="first-round">NBA Playoffs First Round</option>
+                    </select>
+                </div>
+
+                <div class= "select-match">
+                        <select name="match-up" class="match-select">
+                            <option value="warrios-bucks">Select Match</option>
+                        </select>
+                </div>
+
+                <button class="toggle-home"></button>
+                <button class="toggle-theme">Switch to Dark Mode</button>
+
             </div>
-            <div class = 'away warriors'>
-                <div class="away-name">Golden State Warriors</div>
+            <div class = 'away dark-theme theme-toggle'>
+                <div class="away-name"></div>
                 <div>
-                    <img class='away-logo' src='./assets/warriorslogo.png'>
+                    <img class='away-logo' >
                 </div>
             </div>
-            <div class = 'home bucks'>
-                <div class='home-name'>Milwaukee Bucks</div>
+            <div class = 'home dark-theme theme-toggle'>
+                <div class='home-name'></div>
                 <div>
-                    <img class='home-logo' src='./assets/buckslogo.png'>
+                    <img class='home-logo'>
                 </div>
             </div>
         </div>
         <div class = "match-info">
-            <div class="date">Time</div>
-            <div class="count-down">
+            <div class="date"></div>
+            <div class="count-down dark-theme theme-toggle">
                 <table>
                         <tr>
                             <td>Jump Ball</td>
@@ -43,16 +58,16 @@
                         </tr>
                 </table> 
             </div>
-            <div class="location">
+            <div class="location dark-theme theme-toggle">
                 <table>
                     <tr>
                         <td>in</td>
                     </tr>
                     <tr>
-                        <td class='stadium'>Fiserv Forum</td>
+                        <td class='stadium'></td>
                     </tr>
                     <tr>
-                        <td class='city'>Milwaukee, WI</td>
+                        <td class='city'></td>
                     </tr>
                 </table>
             </div>
