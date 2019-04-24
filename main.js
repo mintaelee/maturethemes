@@ -13,11 +13,17 @@ function init(){
         .addEventListener('click', toggleTheme);
 
         
-    document.querySelector(".bracket-select")
-        .addEventListener('change', switchBracket);
+    // document.querySelector(".bracket-select")
+    //     .addEventListener('change', switchBracket);
         
     document.querySelector(".match-select")
         .addEventListener('change', switchMatch);
+
+    document.querySelector('.left')
+        .addEventListener('click', decreaseDate);
+    
+    document.querySelector('.right')
+        .addEventListener('click', increaseDate);
     
     // Create countdown for final game
     document.querySelector(".days-left").innerText = countdown();
@@ -30,32 +36,40 @@ function setDefault(){
     toggleTheme();
 
     // Set default teams as warriors and bucks
-    changeAway('golden state warriors');
-    changeHome('milwaukee bucks');
+    let today = currentdate();
+
+    showMatchList(today);
+    changeAway('gsw');
+    changeHome('mil');
+
+    document.querySelector(".date-selected")
+        .innerText = currentdate();
 
 }
+
+
 
 // Function to switch drop down menu for match selection based on user selected 
 // playoff bracket
-function switchBracket(){
-    event.preventDefault();
+// function switchBracket(){
+//     event.preventDefault();
 
-    let round = selectRound();
+//     let round = selectRound();
     
-    const matchDropDown = document.querySelector('.match-select')
+//     const matchDropDown = document.querySelector('.match-select')
     
 
-    // Clear drop down menu first
-    clearDropDown();
+//     // Clear drop down menu first
+//     clearDropDown();
 
-    // Fill drop down menu
-    for (let i = 0; i < round.length; i++){
-        let matchup = document.createElement('option');
-        matchup.text = matchup.value = round[i].match;
-        matchDropDown.add(matchup, 0);
-    }
+//     // Fill drop down menu
+//     for (let i = 0; i < round.length; i++){
+//         let matchup = document.createElement('option');
+//         matchup.text = matchup.value = round[i].match;
+//         matchDropDown.add(matchup, 0);
+//     }
 
-}
+// }
 
 // Function to switch to user selected match
 function switchMatch(){
@@ -63,15 +77,21 @@ function switchMatch(){
 
     // Grab what the user selected
     const matchSelected = document.querySelector('.match-select').value;
+    let date = document.querySelector(".date-selected").innerText;
+
     
     // Grab match data
-    let round = selectRound();
+    // let round = selectRound();
 
-    let index = searchMatchIndex(matchSelected, round);
+    // let index = searchMatchIndex(matchSelected, round);
+    let away = matchSelected.slice(0,3);
+    let home = matchSelected.slice(7);
 
     // Change away and home teams
-    changeAway(round[index].away);
-    changeHome(round[index].home);
+    changeAway(away);
+    changeHome(home);
+
+    updateScore(date);
 
 }
 
@@ -189,7 +209,7 @@ function changeHome(team){
 // Helper function to search index from the teams data
 function searchTeamIndex(team){
     for (let i = 0; i < teams.length; i++){
-        if (teams[i].name.toLowerCase() === team.toLowerCase()){
+        if (teams[i].abName.toLowerCase() === team.toLowerCase()){
             return i;
         }
     }
@@ -205,7 +225,7 @@ function searchMatchIndex(match,round){
 }
 // Helper function to select correct data based on user selected bracket
 function selectRound(){
-    const bracketSelected = document.querySelector('.bracket-select').value;
+    // const bracketSelected = document.querySelector('.bracket-select').value;
 
     if(bracketSelected === 'first-round'){
         return firstRound;
@@ -214,3 +234,128 @@ function selectRound(){
     }
     
 }
+
+function currentdate(){
+    let currentdate = new Date();
+
+    let month = currentdate.getMonth()+1;
+    let day = currentdate.getDate();
+    let year = currentdate.getFullYear();
+
+
+    return dateToText(year,month,day);;
+}
+
+function dateToText(year, month, day){
+    if (month < 10){
+        month = '0' + month;
+    }
+
+    if (day < 10){
+        day = '0' + day;
+    }
+
+    let date = `${year}-${month}-${day}`;
+
+    return date;
+}
+
+function decreaseDate() {
+    let current = document.querySelector(".date-selected").innerText;
+
+    let array = current.split('-');
+
+    let year = parseInt(array[0]);
+    let month = parseInt(array[1]);
+    let day = parseInt(array[2])-1;
+
+    let newDate = dateToText(year, month, day);
+
+    document.querySelector(".date-selected").innerText = newDate;
+
+    showMatchList(newDate)
+
+}
+
+function increaseDate() {
+    let current = document.querySelector(".date-selected").innerText;
+
+    let array = current.split('-');
+
+    let year = parseInt(array[0]);
+    let month = parseInt(array[1]);
+    let day = parseInt(array[2])+1;
+
+    let newDate = dateToText(year, month, day);
+
+    document.querySelector(".date-selected").innerText = newDate;
+
+    showMatchList(newDate)
+
+
+}
+
+function showMatchList(date){
+    const xhr = new XMLHttpRequest();
+    const url = `https://www.balldontlie.io/api/v1/games?dates[]='${date}'`;
+
+    xhr.open('GET', url, true);
+
+    xhr.onload = handleData;
+    xhr.send();
+
+}
+
+function handleData(event){
+    const matches = JSON.parse(event.target.responseText);
+
+    const matchDropDown = document.querySelector('.match-select')
+
+    // const {home_team, visitor_team} = matches.data[0];
+
+    // console.log(home_team.abbreviation);
+    // console.log(visitor_team);
+
+    clearDropDown();
+
+    for(let i = 0; i < matches.data.length; i++){
+        let matchup = document.createElement('option');
+        const {home_team, visitor_team} = matches.data[i];
+
+        const matchText = `${visitor_team.abbreviation} vs ${home_team.abbreviation}`
+
+        matchup.text = matchup.value = matchText;
+        matchDropDown.add(matchup, 0);
+    }
+}
+
+function updateScore(date){
+    const xhr = new XMLHttpRequest();
+    const url = `https://www.balldontlie.io/api/v1/games?dates[]='${date}'`;
+
+    xhr.open('GET', url, true);
+
+    xhr.onload = handleScore;
+    xhr.send();
+}
+
+function handleScore(event){
+    const matches = JSON.parse(event.target.responseText);
+
+    const homeScore = document.querySelector('.home-score');
+    const awayScore = document.querySelector('.away-score');
+
+    const home = document.querySelector('.home-name').innerText;
+
+    for(let i = 0; i < matches.data.length; i++){
+        const {home_team, home_team_score, visitor_team_score} = matches.data[i];
+        console.log(visitor_team_score);
+
+        if(home_team.full_name === home){
+            homeScore.innerText = home_team_score;
+            awayScore.innerText = visitor_team_score;
+        }
+
+    }
+}
+

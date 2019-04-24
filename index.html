@@ -13,16 +13,22 @@
     <div class = "app dark-theme theme-toggle">
         <div class ="match-up">
             <div class = 'match-heading'>
-                <div class= "match-type">
+                <!-- <div class= "match-type">
                     <select name="playoff-bracket" class="bracket-select">
                         <option value="finals">NBA Playoffs Finals</option>
                         <option value="first-round">NBA Playoffs First Round</option>
                     </select>
+                </div> -->
+
+                <div class = "date-select">
+                    <i class="left"></i>
+                    <div class ='date-selected'></div>
+                    <i class='right'></i>
                 </div>
 
                 <div class= "select-match">
                         <select name="match-up" class="match-select">
-                            <option value="warrios-bucks">Select Match</option>
+                            <option value="warriors-bucks"></option>
                         </select>
                 </div>
 
@@ -31,16 +37,18 @@
 
             </div>
             <div class = 'away dark-theme theme-toggle'>
-                <div class="away-name"></div>
                 <div>
                     <img class='away-logo' >
                 </div>
+                <div class="away-name"></div>
+                <div class='away-score'></div>
             </div>
             <div class = 'home dark-theme theme-toggle'>
-                <div class='home-name'></div>
                 <div>
                     <img class='home-logo'>
                 </div>
+                <div class='home-name'></div>
+                <div class='home-score'></div>
             </div>
         </div>
         <div class = "match-info">
@@ -58,7 +66,7 @@
                         </tr>
                 </table> 
             </div>
-            <div class="location dark-theme theme-toggle">
+            <div class="location dark-theme theme-toggle                                        ">
                 <table>
                     <tr>
                         <td>in</td>

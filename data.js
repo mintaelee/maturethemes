@@ -1,7 +1,7 @@
 const teams = [
     {
         "name": "Golden State Warriors",
-        "abName": "Warriors",
+        "abName": "GSW",
         "home-color": "rgb(253,185,39)",
         "away-color": "rgb(38,40,42)",
         "stadium": "Oracle Arena",
@@ -10,7 +10,7 @@ const teams = [
 
     {
         "name": "Milwaukee Bucks",
-        "abName": "Bucks",
+        "abName": "MIL",
         "home-color": "rgb(240,235,210)",
         "away-color": "rgb(0,71,27)",
         "stadium": "Fiserv Forum",
@@ -19,7 +19,7 @@ const teams = [
 
     {
         "name": "Los Angeles Clippers",
-        "abName": "Clippers",
+        "abName": "LAC",
         "home-color": "rgb(200,16,46)",
         "away-color": "rgb(190,192,194)",
         "stadium": "Staples Center",
@@ -28,7 +28,7 @@ const teams = [
 
     {
         "name": "Houston Rockets",
-        "abName": "Rockets",
+        "abName": "HOU",
         "home-color": "rgb(206,17,65)",
         "away-color": "rgb(196,206,211)",
         "stadium": "Toyota Center",
@@ -37,7 +37,7 @@ const teams = [
 
     {
         "name": "Utah Jazz",
-        "abName": "Jazz",
+        "abName": "UTA",
         "home-color": "rgb(0,43,92)",
         "away-color": "rgb(249,160,27)",
         "stadium": "Vivint Smart Home Arena",
@@ -46,7 +46,7 @@ const teams = [
 
     {
         "name": "Portland Trail Blazers",
-        "abName": "Blazers",
+        "abName": "POR",
         "home-color": "rgb(224,58,62)",
         "away-color": "rgb(6,25,34)",
         "stadium": "Moda Center",
@@ -55,7 +55,7 @@ const teams = [
 
     {
         "name": "Oklahoma City Thunder",
-        "abName": "Thunder",
+        "abName": "OKC",
         "home-color": "rgb(0,125,195)",
         "away-color": "rgb(239,59,36)",
         "stadium": "Chesapeake Energy Arena",
@@ -64,7 +64,7 @@ const teams = [
 
     {
         "name": "Denver Nuggets",
-        "abName": "Nuggets",
+        "abName": "DEN",
         "home-color": "rgb(13,34,64)",
         "away-color": "rgb(255,198,39)",
         "stadium": "Pepsi Center",
@@ -73,13 +73,75 @@ const teams = [
 
     {
         "name": "San Antonio Spurs",
-        "abName": "Spurs",
+        "abName": "SAS",
         "home-color": "rgb(196,206,211)",
         "away-color": "rgb(6,25,34)",
         "stadium": "AT&T Center",
         "city": "San Antonio, TX"
     },
 
+    {
+        "name": "Detroit Pistons",
+        "abName": "DET",
+        "home-color": "rgb(200,16,46)",
+        "away-color": "rgb(29,66,138)",
+        "stadium": "AT&T Center",
+        "city": "San Antonio, TX"
+    },
+
+    {
+        "name": "Boston Celtics",
+        "abName": "BOS",
+        "home-color": "rgb(0,122,51)",
+        "away-color": "rgb(139,111,78)",
+        "stadium": "AT&T Center",
+        "city": "San Antonio, TX"
+    },
+
+    {
+        "name": "Indiana Pacers",
+        "abName": "IND",
+        "home-color": "rgb(0,45,98)",
+        "away-color": "rgb(253,187,48)",
+        "stadium": "AT&T Center",
+        "city": "San Antonio, TX"
+    },
+
+    {
+        "name": "Philadelphia 76ers",
+        "abName": "PHI",
+        "home-color": "rgb(0,107,182)",
+        "away-color": "rgb(237,23,76)",
+        "stadium": "AT&T Center",
+        "city": "San Antonio, TX"
+    },
+
+    {
+        "name": "Brooklyn Nets",
+        "abName": "BKN",
+        "home-color": "rgb(0,0,0)",
+        "away-color": "rgb(119,125,132)",
+        "stadium": "AT&T Center",
+        "city": "San Antonio, TX"
+    },
+
+    {
+        "name": "Toronto Raptors",
+        "abName": "TOR",
+        "home-color": "rgb(206,17,65)",
+        "away-color": "rgb(6,25,34)",
+        "stadium": "AT&T Center",
+        "city": "San Antonio, TX"
+    },
+
+    {
+        "name": "Orlando Magic",
+        "abName": "ORL",
+        "home-color": "rgb(0,125,197)",
+        "away-color": "rgb(196,206,211)",
+        "stadium": "AT&T Center",
+        "city": "San Antonio, TX"
+    }
 
 
 
